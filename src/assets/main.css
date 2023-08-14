@@ -1,9 +1,9 @@
 
 :root{
 
-  --scissorsGradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
-  --paperGradient: linear-gradient( hsl(230, 89%, 62%) ,hsl(230, 89%, 65%));
-  --rockGradient: linear-gradient( hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --scissorsGradient: linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  --paperGradient: linear-gradient(to top, hsl(230, 89%, 62%) ,hsl(230, 89%, 65%));
+  --rockGradient: linear-gradient( to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
 /* - Lizard Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%) */
   --cyanGradient:linear-gradient(( hsl(189, 59%, 53%), hsl(189, 58%, 57%)));
   --darkText:hsl(229, 25%, 31%);
@@ -27,7 +27,7 @@ body{
       font-weight: var(--normalFontWeight);
 }
 .headerWrapper{
-  height:15em;
+  height:13em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,6 +60,7 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-right:-1em;
 }
 div p{
   color:var(--scoreTextColor);
@@ -135,4 +136,65 @@ div p{
 }
 .rulesHeader img{
   cursor: pointer;
+}
+.userWrapper{
+  height:max-content;
+  width:100%;
+  height:70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.userInnerWrapper{
+  height:100%;
+  width:40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.optionSelection{
+    position: absolute;
+  box-sizing: border-box;
+  height:7.5em;
+  width:7.5em;
+  background-color: white;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index:13;
+}
+.outerOptionWrapper{
+  content:"";
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10em;
+  width:10em;
+  border-radius: 50%;
+  cursor: pointer;
+
+}
+.paper{
+  background-image: var(--paperGradient);
+  transform: translate(-100%);
+  rotate:40deg;
+}
+.paper *{
+  rotate:-20deg;
+}
+.rock{
+  background-image: var(--rockGradient);
+       transform: translateY(50%);
+
+}
+.scissors{
+  background-image: var(--scissorsGradient);
+      transform: translateY(-100%);
+  rotate:50deg;
+
+}
+.scissors *{
+  rotate:-20deg;
 }

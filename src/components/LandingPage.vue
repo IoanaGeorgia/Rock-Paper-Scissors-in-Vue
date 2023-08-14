@@ -1,21 +1,36 @@
 <script setup>
 import Header from './Header.vue';
-import { ref, reactive, computed } from 'vue'
-defineProps({
-  msg: {
-    type: String,
-    required: true
-  }
+import UserOptions from './UserOptions.vue';
+import { ref, reactive, computed, onMounted } from 'vue'
+
+  const data = reactive({ 
+    showOverlay: false,
+    userChoice:"",
+    computerChoice:"" 
+  });
+
+  const possibleChoices = ['paper', 'scissors', 'rock']
+
+    onMounted(() => {
+    getComputerChoice()
 })
 
-  const data = reactive({ showOverlay: false });
-const cat ="small little cat"
+  function getComputerChoice(){
+     data.computerChoice =possibleChoices[Math.floor(Math.random() * (2 - 0 + 1)) + 0]
+  }
+
+
 
 function showRules(){
   this.data.showOverlay = true
 }
 function closeRules(){
   this.data.showOverlay = false
+}
+
+function setChoice(val){
+  data.userChoice = val
+
 }
 </script>
 
@@ -31,8 +46,9 @@ function closeRules(){
 </div>
 
 <div class="normalWrapper">
-<Header/>
-I love my {{ cat }}
+<Header />
+
+<UserOptions  @sendChoice="setChoice" />
 
 
 <div class="footer">
@@ -41,7 +57,3 @@ I love my {{ cat }}
 
 </div>
 </template>
-
-<style scoped>
-
-</style>
