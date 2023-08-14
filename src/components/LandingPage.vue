@@ -1,5 +1,6 @@
 <script setup>
 import Header from './Header.vue';
+import { ref, reactive, computed } from 'vue'
 defineProps({
   msg: {
     type: String,
@@ -7,11 +8,19 @@ defineProps({
   }
 })
 
+  const data = reactive({ showOverlay: false });
 const cat ="small little cat"
+
+function showRules(){
+  this.data.showOverlay = true
+}
+function closeRules(){
+  this.data.showOverlay = false
+}
 </script>
 
 <template>
-<div class="overlayWrapper">
+<div v-if="data.showOverlay" class="overlayWrapper">
   <div class="rulesBackground">
     <div class="rulesHeader">
       <span>Rules</span>
