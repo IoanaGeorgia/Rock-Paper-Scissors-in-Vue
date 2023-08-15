@@ -7,20 +7,27 @@ import { ref, reactive, computed, onMounted, onBeforeMount } from 'vue'
   const data = reactive({ 
     showOverlay: false,
     userChoice:"",
-    computerChoice:"" 
+    computerChoice:"" ,
+    localScore:0,
   });
 
   const possibleChoices = ['paper', 'scissors', 'rock']
 
     onBeforeMount(() => {
      getComputerChoice()
+     data.localScore = localStorage.getItem('setScore') ? localStorage.getItem('setScore') : 0; 
 })
 
   function getComputerChoice(){
      data.computerChoice = possibleChoices[Math.floor(Math.random() * (2 - 0 + 1)) + 0]
 
   }
-
+  
+  function getScore(score){
+    console.log('IT GOT SCORE')
+    data.localScore = Number(data.localScore) + 1
+    console.log(data.localScore, 'it got this score')
+  }
 
 
 function showRules(){
@@ -52,10 +59,10 @@ function tryAgain(val){
 </div>
 
 <div class="normalWrapper">
-<Header />
+<Header :allScore="data.localScore" />
 
 <UserOptions v-if="!data.userChoice"  @sendChoice="setChoice" />
-<ResultComponent v-else :computerChoice="data.computerChoice" :userChoice="data.userChoice" @tryAgain="tryAgain" />
+<ResultComponent v-else :computerChoice="data.computerChoice" :userChoice="data.userChoice" @tryAgain="tryAgain" @sendScore="getScore" />
 
 
 

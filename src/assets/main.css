@@ -33,6 +33,7 @@ body{
   align-items: center;
 }
 .innerHeaderWrapper{
+  cursor: default;
   width:45%;
   height:6.5em;
   border:3px solid var(--headerOutline);

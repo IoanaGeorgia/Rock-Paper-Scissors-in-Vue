@@ -1,6 +1,6 @@
 <script setup>
 import { ref, reactive, computed, onMounted } from 'vue'
-const emit = defineEmits(['tryAgain'])
+const emit = defineEmits(['tryAgain', 'sendScore'])
 
 
    const props =  defineProps({
@@ -8,7 +8,7 @@ const emit = defineEmits(['tryAgain'])
       userChoice: { type: String, required: true },
    })
   const data = reactive({ 
-    showResult:false
+    showResult:false,
   });
    const styles ={
     'rock':{
@@ -38,6 +38,11 @@ const computerChoiceImage =  new URL(styles[props.computerChoice]?.img, import.m
 const userChoiceClass=styles[props.userChoice].class
 const computerChoiceClass=styles[props.computerChoice]?.class
 
+function updateLocalScore(){
+emit('sendScore', 1)
+console.log('has been emitted')
+}
+
 function tryAgain(){
         emit('tryAgain', true)
 }
@@ -47,6 +52,7 @@ function tryAgain(){
         }
         if(props.userChoice == 'rock'){
             if(props.computerChoice == 'scissors'){
+                updateLocalScore()
                                 if(localStorage.setScore){
                   localStorage.setScore = Number(localStorage.setScore) +1
                 } else{
@@ -57,6 +63,7 @@ function tryAgain(){
         }
         if(props.userChoice == 'paper'){
             if(props.computerChoice == 'rock'){
+                updateLocalScore()
                                 if(localStorage.setScore){
                   localStorage.setScore = Number(localStorage.setScore) +1
                 } else{
@@ -67,6 +74,7 @@ function tryAgain(){
         }
         if(props.userChoice == 'scissors'){
             if(props.computerChoice == 'paper'){
+                updateLocalScore()
                                    if(localStorage.setScore){
                   localStorage.setScore = Number(localStorage.setScore) +1
                 } else{

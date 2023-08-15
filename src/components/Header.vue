@@ -1,7 +1,9 @@
 <script setup>
+import { ref, reactive, computed, onMounted } from 'vue'
 
-const score = localStorage.getItem('setScore') ? localStorage.getItem('setScore') : 0;
-
+   const props =  defineProps({
+      allScore: {  required: true },
+   })
 </script>
 
 <template>
@@ -12,10 +14,9 @@ const score = localStorage.getItem('setScore') ? localStorage.getItem('setScore'
         <div>Paper</div>
         <div>Scissors</div>
       </div>
-
       <div class="scoreWrapper">
           <p>Score</p>
-          <p class="score">{{ score }}</p>
+          <p class="score">{{ props.allScore}}</p>
       </div>
     </div>
 
