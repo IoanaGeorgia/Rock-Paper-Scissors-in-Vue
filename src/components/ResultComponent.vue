@@ -1,12 +1,15 @@
 <script setup>
 import { ref, reactive, computed, onMounted } from 'vue'
+const emit = defineEmits(['tryAgain'])
 
 
    const props =  defineProps({
       computerChoice: { type: String, required: true },
       userChoice: { type: String, required: true },
    })
-
+  const data = reactive({ 
+    showResult:false
+  });
    const styles ={
     'rock':{
         class:'rockBg',
@@ -22,24 +25,64 @@ import { ref, reactive, computed, onMounted } from 'vue'
     }
    }
 
+                onMounted(()=>{
+                       				setTimeout(() => {
+					data.showResult = true;
+				}, 3000); // 3 seconds
+                })
+
+
 const userChoiceImage =  new URL(styles[props.userChoice].img, import.meta.url)
 const computerChoiceImage =  new URL(styles[props.computerChoice]?.img, import.meta.url)
 
 const userChoiceClass=styles[props.userChoice].class
 const computerChoiceClass=styles[props.computerChoice]?.class
 
-// const computerChoiceImage = new URL(styles[props.computerChoice].img, import.meta.url)
-
-// function imageSourceComputer() {
-//     // var images = require.context("../images/image-rules.svg")
-//     return "../images/image-rules.svg"
-// }
+function tryAgain(){
+        emit('tryAgain', true)
+}
+    const result = computed(() => {
+                if(props.userChoice === props.computerChoice){
+            return 'Equality'
+        }
+        if(props.userChoice == 'rock'){
+            if(props.computerChoice == 'scissors'){
+                                if(localStorage.setScore){
+                  localStorage.setScore = Number(localStorage.setScore) +1
+                } else{
+                    localStorage.setItem('setScore', 1)
+                }
+                return 'You win'
+            } return 'You lose'
+        }
+        if(props.userChoice == 'paper'){
+            if(props.computerChoice == 'rock'){
+                                if(localStorage.setScore){
+                  localStorage.setScore = Number(localStorage.setScore) +1
+                } else{
+                    localStorage.setItem('setScore', 1)
+                }
+                return 'You win'
+            } return 'You lose'
+        }
+        if(props.userChoice == 'scissors'){
+            if(props.computerChoice == 'paper'){
+                                   if(localStorage.setScore){
+                  localStorage.setScore = Number(localStorage.setScore) +1
+                } else{
+                    localStorage.setItem('setScore', 1)
+                }
+                return 'You win'
+            } return 'You lose'
+        } 
+        
+})
 
 </script>
 <template>
     <div class="userWrapper">
         <div class="resultInnerWrapper">
-            <div class="userChoiceWrapper">
+            <div class="userChoiceWrapper userChoiceAnimation">
                 <p>You picked</p>
                 <div class="outerUserChoice" :class="userChoiceClass">
                     <div class="innerUserChoice">
@@ -49,7 +92,15 @@ const computerChoiceClass=styles[props.computerChoice]?.class
                 </div>
             </div>
 
-            <div class="userChoiceWrapper">
+          
+            <div v-if="data.showResult" class="userChoiceWrapper resultWrapper">
+                <p>{{result}} </p>
+                <button @click="tryAgain()">Play again</button>
+            </div>
+            
+
+
+            <div class="userChoiceWrapper computerChoiceAnimation">
                 <p>The house picked</p>
                 <div class="outerUserChoice" :class="computerChoiceClass">
                     <div class="innerUserChoice">
@@ -63,5 +114,4 @@ const computerChoiceClass=styles[props.computerChoice]?.class
 </template>
 
 <style scoped>
-
 </style>

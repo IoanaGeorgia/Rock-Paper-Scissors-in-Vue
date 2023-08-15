@@ -213,12 +213,14 @@ div p{
 }
 .resultInnerWrapper{
   height:100%;
-  width:50%;
+  min-width: 50%;
+  max-width: 50%;
   display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
 }
 .userChoiceWrapper{
   height:85%;
-  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -246,4 +248,58 @@ div p{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.computerChoiceAnimation{
+  animation-name: computerChoiceAnim;
+  animation-duration: 4s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+@keyframes computerChoiceAnim {
+  0%   {margin-left:0px}
+  100%  {margin-left:100px}
+}
+.userChoiceAnimation{
+  animation-name: userChoiceAnim;
+  animation-duration: 4s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+@keyframes userChoiceAnim {
+  0%   {margin-left:0px}
+  100%  {margin-right:100px}
+}
+.resultWrapper p{
+  font-weight: var(--boldFontWeight);
+  color:white;
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+.resultWrapper button{
+  background-color: white;
+  border:none;
+  padding:1em 3.5em;
+  white-space: nowrap;
+  border-radius: 5px;
+  color:var(--darkText);
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.resultWrapper{
+    animation-name: resultAnim;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes resultAnim {
+  0%   {opacity:0%}
+  100%  {opacity:100%}
+}
+.innerUserChoice img{
+  width:40%;
 }

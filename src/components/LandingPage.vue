@@ -34,6 +34,10 @@ function setChoice(val){
   data.userChoice = val
 
 }
+function tryAgain(val){
+  data.userChoice = ""
+
+}
 </script>
 
 <template>
@@ -51,7 +55,7 @@ function setChoice(val){
 <Header />
 
 <UserOptions v-if="!data.userChoice"  @sendChoice="setChoice" />
-<ResultComponent v-else :computerChoice="data.computerChoice" :userChoice="data.userChoice"/>
+<ResultComponent v-else :computerChoice="data.computerChoice" :userChoice="data.userChoice" @tryAgain="tryAgain" />
 
 
 

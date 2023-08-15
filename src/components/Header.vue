@@ -1,6 +1,6 @@
 <script setup>
 
-const score = 12
+const score = localStorage.getItem('setScore') ? localStorage.getItem('setScore') : 0;
 
 </script>
 
