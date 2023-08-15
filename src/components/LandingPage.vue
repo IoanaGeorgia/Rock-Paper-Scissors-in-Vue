@@ -1,7 +1,8 @@
 <script setup>
 import Header from './Header.vue';
 import UserOptions from './UserOptions.vue';
-import { ref, reactive, computed, onMounted } from 'vue'
+import ResultComponent from './ResultComponent.vue'
+import { ref, reactive, computed, onMounted, onBeforeMount } from 'vue'
 
   const data = reactive({ 
     showOverlay: false,
@@ -11,12 +12,13 @@ import { ref, reactive, computed, onMounted } from 'vue'
 
   const possibleChoices = ['paper', 'scissors', 'rock']
 
-    onMounted(() => {
-    getComputerChoice()
+    onBeforeMount(() => {
+     getComputerChoice()
 })
 
   function getComputerChoice(){
-     data.computerChoice =possibleChoices[Math.floor(Math.random() * (2 - 0 + 1)) + 0]
+     data.computerChoice = possibleChoices[Math.floor(Math.random() * (2 - 0 + 1)) + 0]
+
   }
 
 
@@ -48,7 +50,13 @@ function setChoice(val){
 <div class="normalWrapper">
 <Header />
 
-<UserOptions  @sendChoice="setChoice" />
+<UserOptions v-if="!data.userChoice"  @sendChoice="setChoice" />
+<ResultComponent v-else :computerChoice="data.computerChoice" :userChoice="data.userChoice"/>
+
+
+
+
+
 
 
 <div class="footer">
