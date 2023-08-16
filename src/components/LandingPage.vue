@@ -42,7 +42,8 @@ function setChoice(val){
 
 }
 function tryAgain(val){
-  data.userChoice = ""
+  data.userChoice = "",
+  getComputerChoice()
 
 }
 </script>
