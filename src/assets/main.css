@@ -386,6 +386,7 @@ div p{
   width:50%;
   justify-content: center;
   height:60%;
+  animation-delay: 0s;
 }
 .resultInnerWrapper{
   min-width:100vw;
