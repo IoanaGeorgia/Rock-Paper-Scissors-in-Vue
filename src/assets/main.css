@@ -304,3 +304,99 @@ div p{
 .innerUserChoice img{
   width:40%;
 }
+
+@media (max-width: 800px){
+
+}
+.innerHeaderWrapper{
+  width:70%;
+  height:40%;
+  border-radius: 5px;
+}
+.headerTitle{
+  font-size:1em;
+}
+.score{
+  font-size: 2em;
+}
+.scoreWrapper{
+  width:35%;
+  height:4em;
+  border-radius: 3px;
+
+}
+.scoreWrapper p:nth-of-type(1){
+  font-size: 12px;
+}
+.outerOptionWrapper, .outerUserChoice{
+  width:6em;
+  height:6em;
+}
+.optionSelection, .innerUserChoice{
+  height:4.5em;
+  width:4.5em;
+}
+.optionSelection img{
+  width:50%;
+}
+.userInnerWrapper > img{
+  transform: scale(0.6);
+}
+.headerWrapper{
+  height:7.5em;
+}
+.footer{
+  align-items: center;
+  justify-content: center;
+}
+.footer button{
+  border:1px solid white;
+}
+.rulesBackground{
+  width:100%;
+  height:100%;
+}
+.rulesHeader{
+  display: block;
+  text-align: center;
+  margin-top:1em;
+}
+.rulesBackground >img{
+  position: absolute;
+  top:30%;
+  width:80%;
+}
+.rulesHeader img{
+  width:1.2em;
+  position: absolute;
+  bottom:3em;
+  margin:auto;
+  left:0px;
+  right:0px;
+}
+.computerChoiceAnimation, .userChoiceAnimation{
+  flex-direction: column-reverse;
+  animation: none;
+}
+.computerChoiceAnimation p, .userChoiceAnimation p{
+  font-size: 0.7em;
+  margin-top:1.5em;
+}
+.userChoiceWrapper{
+  width:50%;
+  justify-content: center;
+  height:60%;
+}
+.resultInnerWrapper{
+  min-width:100vw;
+}
+.resultWrapper{
+  position: absolute;
+  width:100vw;
+  height:20vh;
+  bottom:7em;
+}
+.userChoiceWrapper button{
+  padding:1em 3.2em;
+  font-size: 0.8em;
+}
