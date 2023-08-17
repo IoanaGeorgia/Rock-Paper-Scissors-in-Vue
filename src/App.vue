@@ -7,6 +7,3 @@ import LandingPage from './components/LandingPage.vue'
 <LandingPage />
 </template>
 
-<style scoped>
-
-</style>
