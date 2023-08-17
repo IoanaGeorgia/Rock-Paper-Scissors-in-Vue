@@ -1,89 +1,88 @@
 <script setup>
-import { ref, reactive, computed, onMounted } from 'vue'
+import { reactive, computed, onMounted } from 'vue'
 const emit = defineEmits(['tryAgain', 'sendScore'])
 
 
-   const props =  defineProps({
-      computerChoice: { type: String, required: true },
-      userChoice: { type: String, required: true },
-   })
-  const data = reactive({ 
-    showResult:false,
-  });
-   const styles ={
-    'rock':{
-        class:'rockBg',
-        img:'../images/icon-rock.svg'
+const props = defineProps({
+    computerChoice: { type: String, required: true },
+    userChoice: { type: String, required: true },
+})
+const data = reactive({
+    showResult: false,
+});
+const styles = {
+    'rock': {
+        class: 'rockBg',
+        img: '../images/icon-rock.svg'
     },
-    'paper':{
-        class:'paperBg',
-        img:'../images/icon-paper.svg'
+    'paper': {
+        class: 'paperBg',
+        img: '../images/icon-paper.svg'
     },
-    'scissors':{
-        class:'scissorsBg',
-        img:'../images/icon-scissors.svg'
+    'scissors': {
+        class: 'scissorsBg',
+        img: '../images/icon-scissors.svg'
     }
-   }
-
-                onMounted(()=>{
-                       				setTimeout(() => {
-					data.showResult = true;
-				}, 1500); // 3 seconds
-                })
-
-
-const userChoiceImage =  new URL(styles[props.userChoice].img, import.meta.url)
-const computerChoiceImage =  new URL(styles[props.computerChoice]?.img, import.meta.url)
-
-const userChoiceClass=styles[props.userChoice].class
-const computerChoiceClass=styles[props.computerChoice]?.class
-
-function updateLocalScore(){
-emit('sendScore', 1)
-console.log('has been emitted')
 }
 
-function tryAgain(){
-        emit('tryAgain', true)
+onMounted(() => {
+    setTimeout(() => {
+        data.showResult = true;
+    }, 1500); 
+})
+
+
+const userChoiceImage = new URL(styles[props.userChoice].img, import.meta.url)
+const computerChoiceImage = new URL(styles[props.computerChoice]?.img, import.meta.url)
+
+const userChoiceClass = styles[props.userChoice].class
+const computerChoiceClass = styles[props.computerChoice]?.class
+
+function updateLocalScore() {
+    emit('sendScore', 1)
 }
-    const result = computed(() => {
-                if(props.userChoice === props.computerChoice){
-            return 'Equality'
-        }
-        if(props.userChoice == 'rock'){
-            if(props.computerChoice == 'scissors'){
-                updateLocalScore()
-                                if(localStorage.setScore){
-                  localStorage.setScore = Number(localStorage.setScore) +1
-                } else{
-                    localStorage.setItem('setScore', 1)
-                }
-                return 'You win'
-            } return 'You lose'
-        }
-        if(props.userChoice == 'paper'){
-            if(props.computerChoice == 'rock'){
-                updateLocalScore()
-                                if(localStorage.setScore){
-                  localStorage.setScore = Number(localStorage.setScore) +1
-                } else{
-                    localStorage.setItem('setScore', 1)
-                }
-                return 'You win'
-            } return 'You lose'
-        }
-        if(props.userChoice == 'scissors'){
-            if(props.computerChoice == 'paper'){
-                updateLocalScore()
-                                   if(localStorage.setScore){
-                  localStorage.setScore = Number(localStorage.setScore) +1
-                } else{
-                    localStorage.setItem('setScore', 1)
-                }
-                return 'You win'
-            } return 'You lose'
-        } 
-        
+
+function tryAgain() {
+    emit('tryAgain', true)
+}
+const result = computed(() => {
+    if (props.userChoice === props.computerChoice) {
+        return 'Equality'
+    }
+    if (props.userChoice == 'rock') {
+        if (props.computerChoice == 'scissors') {
+            updateLocalScore()
+            if (localStorage.setScore) {
+                localStorage.setScore = Number(localStorage.setScore) + 1
+            } else {
+                localStorage.setItem('setScore', 1)
+            }
+            return 'You win'
+        } return 'You lose'
+    }
+    if (props.userChoice == 'paper') {
+        if (props.computerChoice == 'rock') {
+            updateLocalScore()
+            if (localStorage.setScore) {
+                localStorage.setScore = Number(localStorage.setScore) + 1
+            } else {
+                localStorage.setItem('setScore', 1)
+            }
+            return 'You win'
+        } return 'You lose'
+    }
+    if (props.userChoice == 'scissors') {
+        if (props.computerChoice == 'paper') {
+            updateLocalScore()
+            if (localStorage.setScore) {
+                localStorage.setScore = Number(localStorage.setScore) + 1
+            } else {
+                localStorage.setItem('setScore', 1)
+            }
+            return 'You win'
+        } return 'You lose'
+    }
+
 })
 
 </script>
@@ -95,18 +94,15 @@ function tryAgain(){
                 <div class="outerUserChoice" :class="userChoiceClass">
                     <div class="innerUserChoice">
                         <img :src="userChoiceImage">
-            
+
                     </div>
                 </div>
             </div>
 
-          
             <div v-if="data.showResult" class="userChoiceWrapper resultWrapper">
-                <p>{{result}} </p>
+                <p>{{ result }} </p>
                 <button @click="tryAgain()">Play again</button>
             </div>
-            
-
 
             <div class="userChoiceWrapper computerChoiceAnimation">
                 <p>The house picked</p>
@@ -121,5 +117,3 @@ function tryAgain(){
     </div>
 </template>
 
-<style scoped>
-</style>

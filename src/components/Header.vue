@@ -1,9 +1,8 @@
 <script setup>
-import { ref, reactive, computed, onMounted } from 'vue'
 
-   const props =  defineProps({
-      allScore: {  required: true },
-   })
+const props = defineProps({
+  allScore: { required: true },
+})
 </script>
 
 <template>
@@ -15,10 +14,10 @@ import { ref, reactive, computed, onMounted } from 'vue'
         <div>Scissors</div>
       </div>
       <div class="scoreWrapper">
-          <p>Score</p>
-          <p class="score">{{ props.allScore}}</p>
+        <p>Score</p>
+        <p class="score">{{ props.allScore }}</p>
       </div>
     </div>
 
-</div>
+  </div>
 </template>
