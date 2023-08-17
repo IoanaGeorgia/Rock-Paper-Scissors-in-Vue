@@ -28,7 +28,7 @@ const emit = defineEmits(['tryAgain', 'sendScore'])
                 onMounted(()=>{
                        				setTimeout(() => {
 					data.showResult = true;
-				}, 3000); // 3 seconds
+				}, 1500); // 3 seconds
                 })
 
 

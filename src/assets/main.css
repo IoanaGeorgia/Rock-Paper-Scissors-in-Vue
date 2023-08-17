@@ -252,8 +252,8 @@ div p{
 }
 .computerChoiceAnimation{
   animation-name: computerChoiceAnim;
-  animation-duration: 4s;
-  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
 }
 @keyframes computerChoiceAnim {
@@ -262,8 +262,8 @@ div p{
 }
 .userChoiceAnimation{
   animation-name: userChoiceAnim;
-  animation-duration: 4s;
-  animation-delay: 2s;
+  animation-duration: 2s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
 }
 @keyframes userChoiceAnim {
@@ -307,7 +307,6 @@ div p{
 
 @media (max-width: 800px){
 
-}
 .innerHeaderWrapper{
   width:70%;
   height:40%;
@@ -400,4 +399,5 @@ div p{
 .userChoiceWrapper button{
   padding:1em 3.2em;
   font-size: 0.8em;
+}
 }
