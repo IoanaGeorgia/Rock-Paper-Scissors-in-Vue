@@ -13,15 +13,15 @@ const data = reactive({
 const styles = {
     'rock': {
         class: 'rockBg',
-        img: 'icon-rock.svg'
+        img: '../images/icon-rock.svg'
     },
     'paper': {
         class: 'paperBg',
-        img: 'icon-paper.svg'
+        img: '../images/icon-paper.svg'
     },
     'scissors': {
         class: 'scissorsBg',
-        img: 'icon-scissors.svg'
+        img: '../images/icon-scissors.svg'
     }
 }
 
