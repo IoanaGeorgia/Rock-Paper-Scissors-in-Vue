@@ -1,115 +1,123 @@
-
-:root{
-
-  --scissorsGradient: linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
-  --paperGradient: linear-gradient(to top, hsl(230, 89%, 62%) ,hsl(230, 89%, 65%));
-  --rockGradient: linear-gradient( to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
-/* - Lizard Gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%) */
-  --cyanGradient:linear-gradient(( hsl(189, 59%, 53%), hsl(189, 58%, 57%)));
-  --darkText:hsl(229, 25%, 31%);
+:root {
+  --scissorsGradient: linear-gradient(
+    to top,
+    hsl(39, 89%, 49%),
+    hsl(40, 84%, 53%)
+  );
+  --paperGradient: linear-gradient(
+    to top,
+    hsl(230, 89%, 62%),
+    hsl(230, 89%, 65%)
+  );
+  --rockGradient: linear-gradient(
+    to top,
+    hsl(349, 71%, 52%),
+    hsl(349, 70%, 56%)
+  );
+  --cyanGradient: linear-gradient((hsl(189, 59%, 53%), hsl(189, 58%, 57%)));
+  --darkText: hsl(229, 25%, 31%);
   --scoreTextColor: hsl(229, 64%, 46%);
   --headerOutline: hsl(217, 16%, 45%);
-  --backgroundRadial:radial-gradient( hsl(214, 47%, 23%), hsl(237, 49%, 15%));
-  --font:'Barlow Semi Condensed', sans-serif;
-  --normalFontWeight:600;
-  --boldFontWeight:700;
-
+  --backgroundRadial: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  --font: "Barlow Semi Condensed", sans-serif;
+  --normalFontWeight: 600;
+  --boldFontWeight: 700;
 }
 
-body, body *{
-  padding:0px;
-  margin:0px;
+body,
+body * {
+  padding: 0px;
+  margin: 0px;
 }
-body{
+body {
   background-image: var(--backgroundRadial);
-      background-attachment: fixed;
-      font-family: var(--font);
-      font-weight: var(--normalFontWeight);
+  background-attachment: fixed;
+  font-family: var(--font);
+  font-weight: var(--normalFontWeight);
 }
-.headerWrapper{
-  height:13em;
+.headerWrapper {
+  height: 13em;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.innerHeaderWrapper{
+.innerHeaderWrapper {
   cursor: default;
-  width:45%;
-  height:6.5em;
-  border:3px solid var(--headerOutline);
+  width: 45%;
+  height: 6.5em;
+  border: 3px solid var(--headerOutline);
   border-radius: 16px;
-  padding:1em 2em;
+  padding: 1em 2em;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.headerTitle{
-  height:100%;
-  width:25%;
-  color:white;
+.headerTitle {
+  height: 100%;
+  width: 25%;
+  color: white;
   text-transform: uppercase;
   font-weight: var(--boldFontWeight);
-  font-size:2em;
+  font-size: 2em;
   line-height: 100%;
 }
-.scoreWrapper{
-  height:100%;
-  width:20%;
+.scoreWrapper {
+  height: 100%;
+  width: 20%;
   border-radius: 10px;
   background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-right:-1em;
+  margin-right: -1em;
 }
-div p{
-  color:var(--scoreTextColor);
+div p {
+  color: var(--scoreTextColor);
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-.score{
+.score {
   font-size: 3em;
   font-weight: var(--boldFontWeight);
-  color:hsl(213, 29%, 29%);
+  color: hsl(213, 29%, 29%);
 }
-.footer{
+.footer {
   position: absolute;
-  bottom:0px;
-  left:0px;
-  width:100%;
-  /* height:3em; */
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
   box-sizing: border-box;
-  padding:2em;
+  padding: 2em;
   display: flex;
   justify-content: flex-end;
 }
-.footer button{
-  border:3px solid white;
+.footer button {
+  border: 3px solid white;
   border-radius: 6px;
-  padding:0.7em 2.3em;
+  padding: 0.7em 2.3em;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color:white;
+  color: white;
   background-color: transparent;
   cursor: pointer;
 }
-.overlayWrapper{
+.overlayWrapper {
   position: absolute;
-  top:0px;
-  left:0px;
+  top: 0px;
+  left: 0px;
   width: 100%;
-  height:100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.393);
-  z-index:20;
+  z-index: 20;
 }
-.rulesBackground{
-  width:25%; 
-  height:56%; 
-  min-width:7em;
+.rulesBackground {
+  width: 25%;
+  height: 56%;
+  min-width: 7em;
   min-height: 7em;
   background-color: white;
   box-sizing: border-box;
@@ -121,175 +129,176 @@ div p{
   justify-content: space-between;
   border-radius: 10px;
 }
-.rulesHeader{
-  height:15%;
-  width:100%;
+.rulesHeader {
+  height: 15%;
+  width: 100%;
   box-sizing: border-box;
-  padding:2em;
+  padding: 2em;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.rulesHeader span{
+.rulesHeader span {
   text-transform: uppercase;
-  color:var(--darkText);
+  color: var(--darkText);
   font-weight: var(--boldFontWeight);
-  font-size:1.8em;
+  font-size: 1.8em;
 }
-.rulesHeader img{
+.rulesHeader img {
   cursor: pointer;
 }
-.userWrapper{
-  height:max-content;
-  width:100%;
-  height:70vh;
+.userWrapper {
+  height: max-content;
+  width: 100%;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.userInnerWrapper{
-  height:100%;
-  width:40%;
+.userInnerWrapper {
+  height: 100%;
+  width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.optionSelection{
-    position: absolute;
+.optionSelection {
+  position: absolute;
   box-sizing: border-box;
-  height:7.5em;
-  width:7.5em;
+  height: 7.5em;
+  width: 7.5em;
   background-color: white;
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index:13;
+  z-index: 13;
 }
-.outerOptionWrapper{
-  content:"";
+.outerOptionWrapper {
+  content: "";
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 10em;
-  width:10em;
+  width: 10em;
   border-radius: 50%;
   cursor: pointer;
-
 }
-.paper{
+.paper {
   background-image: var(--paperGradient);
   transform: translate(-100%);
-  rotate:40deg;
+  rotate: 40deg;
 }
-.paperBg{
-    background-image: var(--paperGradient) !important;
-
+.paperBg {
+  background-image: var(--paperGradient) !important;
 }
-.paper *{
-  rotate:-20deg;
+.paper * {
+  rotate: -20deg;
 }
-.rock{
+.rock {
   background-image: var(--rockGradient);
-       transform: translateY(50%);
-
+  transform: translateY(50%);
 }
-.rockBg{
-    background-image: var(--rockGradient) !important;
-
+.rockBg {
+  background-image: var(--rockGradient) !important;
 }
-.scissors{
+.scissors {
   background-image: var(--scissorsGradient);
-      transform: translateY(-100%);
-  rotate:50deg;
-
+  transform: translateY(-100%);
+  rotate: 50deg;
 }
-.scissorsBg{
-    background-image: var(--scissorsGradient) !important;
-
+.scissorsBg {
+  background-image: var(--scissorsGradient) !important;
 }
-.scissors *{
-  rotate:-20deg;
+.scissors * {
+  rotate: -20deg;
 }
-.resultInnerWrapper{
-  height:100%;
+.resultInnerWrapper {
+  height: 100%;
   min-width: 50%;
   max-width: 50%;
   display: flex;
   align-items: flex-start;
   justify-content: space-evenly;
 }
-.userChoiceWrapper{
-  height:85%;
+.userChoiceWrapper {
+  height: 85%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-
 }
-.userChoiceWrapper p{
-    color:white;
+.userChoiceWrapper p {
+  color: white;
   font-weight: var(--boldFontWeight);
-  font-size:1.5em;
+  font-size: 1.5em;
 }
-.outerUserChoice{
-  height:15em;
-  width:15em;
+.outerUserChoice {
+  height: 15em;
+  width: 15em;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.innerUserChoice{
-  height:12em;
-  width:12em;
+.innerUserChoice {
+  height: 12em;
+  width: 12em;
   border-radius: 50%;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.computerChoiceAnimation{
+.computerChoiceAnimation {
   animation-name: computerChoiceAnim;
   animation-duration: 2s;
   animation-delay: 1s;
   animation-fill-mode: forwards;
 }
 @keyframes computerChoiceAnim {
-  0%   {margin-left:0px}
-  100%  {margin-left:100px}
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 100px;
+  }
 }
-.userChoiceAnimation{
+.userChoiceAnimation {
   animation-name: userChoiceAnim;
   animation-duration: 2s;
   animation-delay: 1s;
   animation-fill-mode: forwards;
 }
 @keyframes userChoiceAnim {
-  0%   {margin-left:0px}
-  100%  {margin-right:100px}
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-right: 100px;
+  }
 }
-.resultWrapper p{
+.resultWrapper p {
   font-weight: var(--boldFontWeight);
-  color:white;
+  color: white;
   font-size: 2.5em;
   margin-bottom: 0.5em;
 }
-.resultWrapper button{
+.resultWrapper button {
   background-color: white;
-  border:none;
-  padding:1em 3.5em;
+  border: none;
+  padding: 1em 3.5em;
   white-space: nowrap;
   border-radius: 5px;
-  color:var(--darkText);
+  color: var(--darkText);
   text-transform: uppercase;
   font-size: 1em;
   letter-spacing: 1px;
   cursor: pointer;
 }
-.resultWrapper{
-    animation-name: resultAnim;
+.resultWrapper {
+  animation-name: resultAnim;
   animation-duration: 1s;
   animation-delay: 0s;
   animation-fill-mode: forwards;
@@ -298,106 +307,112 @@ div p{
   align-items: center;
 }
 @keyframes resultAnim {
-  0%   {opacity:0%}
-  100%  {opacity:100%}
+  0% {
+    opacity: 0%;
+  }
+  100% {
+    opacity: 100%;
+  }
 }
-.innerUserChoice img{
-  width:40%;
+.innerUserChoice img {
+  width: 40%;
 }
 
-@media (max-width: 800px){
-
-.innerHeaderWrapper{
-  width:70%;
-  height:40%;
-  border-radius: 5px;
-}
-.headerTitle{
-  font-size:1em;
-}
-.score{
-  font-size: 2em;
-}
-.scoreWrapper{
-  width:35%;
-  height:4em;
-  border-radius: 3px;
-
-}
-.scoreWrapper p:nth-of-type(1){
-  font-size: 12px;
-}
-.outerOptionWrapper, .outerUserChoice{
-  width:6em;
-  height:6em;
-}
-.optionSelection, .innerUserChoice{
-  height:4.5em;
-  width:4.5em;
-}
-.optionSelection img{
-  width:50%;
-}
-.userInnerWrapper > img{
-  transform: scale(0.6);
-}
-.headerWrapper{
-  height:7.5em;
-}
-.footer{
-  align-items: center;
-  justify-content: center;
-}
-.footer button{
-  border:1px solid white;
-}
-.rulesBackground{
-  width:100%;
-  height:100%;
-}
-.rulesHeader{
-  display: block;
-  text-align: center;
-  margin-top:1em;
-}
-.rulesBackground >img{
-  position: absolute;
-  top:30%;
-  width:80%;
-}
-.rulesHeader img{
-  width:1.2em;
-  position: absolute;
-  bottom:3em;
-  margin:auto;
-  left:0px;
-  right:0px;
-}
-.computerChoiceAnimation, .userChoiceAnimation{
-  flex-direction: column-reverse;
-  animation: none;
-}
-.computerChoiceAnimation p, .userChoiceAnimation p{
-  font-size: 0.7em;
-  margin-top:1.5em;
-}
-.userChoiceWrapper{
-  width:50%;
-  justify-content: center;
-  height:60%;
-  animation-delay: 0s;
-}
-.resultInnerWrapper{
-  min-width:100vw;
-}
-.resultWrapper{
-  position: absolute;
-  width:100vw;
-  height:20vh;
-  bottom:7em;
-}
-.userChoiceWrapper button{
-  padding:1em 3.2em;
-  font-size: 0.8em;
-}
+@media (max-width: 800px) {
+  .innerHeaderWrapper {
+    width: 70%;
+    height: 40%;
+    border-radius: 5px;
+  }
+  .headerTitle {
+    font-size: 1em;
+  }
+  .score {
+    font-size: 2em;
+  }
+  .scoreWrapper {
+    width: 35%;
+    height: 4em;
+    border-radius: 3px;
+  }
+  .scoreWrapper p:nth-of-type(1) {
+    font-size: 12px;
+  }
+  .outerOptionWrapper,
+  .outerUserChoice {
+    width: 6em;
+    height: 6em;
+  }
+  .optionSelection,
+  .innerUserChoice {
+    height: 4.5em;
+    width: 4.5em;
+  }
+  .optionSelection img {
+    width: 50%;
+  }
+  .userInnerWrapper > img {
+    transform: scale(0.6);
+  }
+  .headerWrapper {
+    height: 7.5em;
+  }
+  .footer {
+    align-items: center;
+    justify-content: center;
+  }
+  .footer button {
+    border: 1px solid white;
+  }
+  .rulesBackground {
+    width: 100%;
+    height: 100%;
+  }
+  .rulesHeader {
+    display: block;
+    text-align: center;
+    margin-top: 1em;
+  }
+  .rulesBackground > img {
+    position: absolute;
+    top: 30%;
+    width: 80%;
+  }
+  .rulesHeader img {
+    width: 1.2em;
+    position: absolute;
+    bottom: 3em;
+    margin: auto;
+    left: 0px;
+    right: 0px;
+  }
+  .computerChoiceAnimation,
+  .userChoiceAnimation {
+    flex-direction: column-reverse;
+    animation: none;
+  }
+  .computerChoiceAnimation p,
+  .userChoiceAnimation p {
+    font-size: 0.7em;
+    margin-top: 1.5em;
+  }
+  .userChoiceWrapper {
+    width: 50%;
+    justify-content: center;
+    height: 60%;
+    animation-delay: 0s;
+  }
+  .resultInnerWrapper {
+    min-width: 100vw;
+  }
+  .resultWrapper {
+    position: absolute;
+    width: 100vw;
+    height: 20vh;
+    bottom: 7em;
+  }
+  .userChoiceWrapper button {
+    padding: 1em 3.2em;
+    font-size: 0.8em;
+  }
 }
