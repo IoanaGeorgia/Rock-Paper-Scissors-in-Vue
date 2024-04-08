@@ -13,15 +13,15 @@ const data = reactive({
 const styles = {
     'rock': {
         class: 'rockBg',
-        img: '..//images//icon-rock.svg'
+        img: 'icon-rock.svg'
     },
     'paper': {
         class: 'paperBg',
-        img: '..//images//icon-paper.svg'
+        img: 'icon-paper.svg'
     },
     'scissors': {
         class: 'scissorsBg',
-        img: '..//images//icon-scissors.svg'
+        img: 'icon-scissors.svg'
     }
 }
 
@@ -32,8 +32,8 @@ onMounted(() => {
 })
 
 
-const userChoiceImage = new URL(styles[props.userChoice].img, import.meta.url)
-const computerChoiceImage = new URL(styles[props.computerChoice]?.img, import.meta.url)
+const userChoiceImage = new URL('..//images//' + styles[props.userChoice].img, import.meta.url)
+const computerChoiceImage = new URL('..//images//' + styles[props.computerChoice]?.img, import.meta.url)
 
 const userChoiceClass = styles[props.userChoice].class
 const computerChoiceClass = styles[props.computerChoice]?.class
