@@ -32,8 +32,9 @@ onMounted(() => {
 })
 
 
-const userChoiceImage = new URL('..//images//' + styles[props.userChoice].img, import.meta.url)
-const computerChoiceImage = new URL('..//images//' + styles[props.computerChoice]?.img, import.meta.url)
+const userChoiceImage = new URL(`../images/${styles[props.userChoice].img}`, import.meta.url).href
+const computerChoiceImage = new URL(`../images/${styles[props.computerChoice].img}`, import.meta.url).href
+
 
 const userChoiceClass = styles[props.userChoice].class
 const computerChoiceClass = styles[props.computerChoice]?.class
